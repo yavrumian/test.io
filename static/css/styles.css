@@ -1,0 +1,110 @@
+body{
+    background-color: #4db1b8;
+    font-family: monospace;
+}
+#err{
+    color: red;
+}
+.tabs{
+    display: inline
+}
+input, textarea, button{
+    margin: 5px;
+    padding: 7px;
+    border:0
+}
+.namespace-block {
+    display: inline-block;
+    position: relative;
+}
+.namespace-block > input {
+    padding-left: 11px
+}
+.slash{
+    position:absolute;
+    left:10px;
+    font-weight:bold;
+    top:10px;
+}
+.close{
+    background-color: white;
+    padding: 5px;
+    border-bottom: 2px white solid;
+    font-family: sans-serif;
+}
+.close:hover{
+    background-color: #d8d8d8;
+    border-bottom: 2px #d8d8d8 solid;
+    cursor: pointer;
+    font-family: sans-serif;
+}
+.show, .active-card{
+    display: block !important
+}
+.body{
+    display: none
+}
+.dot {
+    vertical-align: sub;
+    background-color: red;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    display: inline-flex;
+}
+.tab{
+    display: inline-block;
+    position: relative;
+}
+.event{
+    margin-right: 0;
+    width: 100px;
+}
+.card{
+    user-select:none;
+    border-radius: 10px 10px 0px 0px;
+    background-color: white;
+    display: inline-block;
+}
+.card-close{
+    border-radius: 0px 10px 0px 0px;
+    padding: 10px;
+    font-family: sans-serif;
+}
+.item-close{
+    padding: 10px;
+}
+.item-close:hover{
+    background-color: #b4b4b4
+}
+/* .card-close:hover{
+    cursor: pointer;
+    background-color: #b4b4b4
+} */
+.card-head{
+    cursor: pointer;
+    border-radius: 10px 10px 0px 0px;
+    padding: 10px;
+    padding-right: 0;
+    box-shadow: 3px 6px 8px -7px rgba(0,0,0,0.68)
+}
+.card-item{
+    padding: 10px
+}
+.card-item:hover{
+    background-color: #dbdbdb
+}
+.active{
+    background-color: #a9a9a9
+}
+.card-body{
+    display: none;
+}
+.event-body{
+    resize: none;
+    display: none;
+    margin: 0
+}
+.card-body:last-child{
+    box-shadow: 3px 6px 8px -7px rgba(0,0,0,0.68)
+}

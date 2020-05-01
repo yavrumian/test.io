@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket IO tester</title>
+    <link rel="stylesheet" href="./css/styles.css">
+  </head>
+  <body>
+    <div class="control">
+        <input type="text" id="address" value="https://development.gaspropane.ml" placeholder="http://example.com/socket.io">
+        <div class="namespace-block">
+            <input type="text" id="namespace" placeholder=" namespace"><label for="namespace" class="slash">/</label>
+        </div>
+        <button type="button" id="connect">Connect</button><span class="dot" id="status"></span>
+        <br>
+        <span id="err" color="red"></span>
+    </div>
+    <div class="panel">
+      <div class="tabs">
+          <div class="tab">
+              <input type="text" id="event1" placeholder="event name" class="event" num="1"><span id="close1" class="close">x</span>
+          </div>
+      </div>
+      <button type="button" id="add">+</button>
+    </div>
+    <div class="bodies">
+      <textarea class="body" rows="8" cols="20" id="body1" class="editable show"></textarea>
+    </div>
+    <br>
+    <button type="button" id="send">Send</button>
+    <br>
+    <input type="text" id="listener" placeholder="Event Name">
+    <button type="button" name="button" id="listen">Add Listener</button>
+    <br>
+    <div class="card">
+        <div class="card-head"  id="card-toggle">
+            <span class="card-name">Select event to see data</span>
+            <span class="card-close">&#9660;</span>
+        </div>
+        <div class="card-body">
+        
+        </div>
+    </div>
+    <div id="event-bodies">
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js" charset="utf-8"></script>
+    <script src="./js/index.js" charset="utf-8"></script>
+  </body>
+</html>
