@@ -1,5 +1,5 @@
 {
-  "name": "test-io",
+  "name": "io-test",
   "version": "1.0.0",
   "description": "Simple but useful online tool to test your Socket.io project",
   "main": "index.js",
