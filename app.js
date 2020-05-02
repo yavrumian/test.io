@@ -1,7 +1,7 @@
 const express = require('express'),
     app = express();
 
-const port = 8080// Change port here
+const port = process.env.PORT || 8080 // Change port here
 
 app.use(express.static('static'))
 
