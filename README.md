@@ -7,13 +7,13 @@ Iotest is a simple but useful online tool for **socket.io** testing
 Use the package manager [npm](https://www.npmjs.com/) to install Iotest.
 
 ```bash
-$ npm i -s iotest
+$ npm i -s socket.io-test
 ```
 
 ## Usage
 Run 
 ```bash
-$ cd iotest
+$ cd socket.io-test
 $ npm i
 $ npm start
 ```
