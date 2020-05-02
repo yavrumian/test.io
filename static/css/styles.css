@@ -2,6 +2,10 @@
 body{
     background-color: #4db1b8;
     font-family: monospace;
+    margin:0;
+}
+.content{
+    padding: 10px
 }
 #err{
     color: red;
@@ -174,3 +178,36 @@ input[type="checkbox"] {
     right: 10px;
 }
 /* Infobox End */
+
+.header{
+    /* padding: 5px; */
+    height: 7vh;
+    color: white;
+    display: flex;
+    align-items: center;
+    background-color: #005166
+}
+.header h2{
+    padding: 17px;
+    line-height: 1;
+}
+.header h1{
+    line-height: 1;
+    padding: 10px;
+    font-weight: 200;
+    margin:0;
+    font-family: 'Roboto Slab', serif;
+}
+.header h1:hover, .header h2:hover{
+    cursor: pointer;
+    background-color: #001e26
+}
+.header a:visited, .header a:visited{
+    text-decoration: none;
+    color: white;
+    text-decoration: none;
+}
+.header a{
+    color:white;
+    text-decoration: none;
+}

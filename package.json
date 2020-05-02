@@ -1,15 +1,18 @@
 {
   "name": "iotest",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple but useful online tool to test your Socket.io project",
   "main": "index.js",
   "scripts": {
       "start":"node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["socket.io", "testing"],
+  "homepage": "https://github.com/yavrumian/iotest#readme",
+  "author": {"name": "Vahe Yavrumian", "email": "vaheyavrumyan@gmail.com", "url": "https://github.com/yavrumian/iotest"},
+"repository": "github:yavrumian/iotest",
+
+  "license": "MIT",
   "dependencies": {
     "express": "^4.17.1"
   }
