@@ -166,6 +166,7 @@ $('#listen').click((e) => {
     render()
 
     socket.on(ev, (msg) => {
+        if(typeof msg == 'object') msg = JSON.stringify(msg, null, 2)
         $('[event-name=' + ev + ']').append(msg+'\n')
         $('#info').text(ev)
     })
