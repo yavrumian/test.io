@@ -1,3 +1,4 @@
+/* Checkbox styles from https://codepen.io/quinlo/pen/ReMRXz?editors=1100 */
 body{
     background-color: #4db1b8;
     font-family: monospace;
@@ -108,3 +109,68 @@ input, textarea, button{
 .card-body:last-child{
     box-shadow: 3px 6px 8px -7px rgba(0,0,0,0.68)
 }
+.event-show{
+    display: block;
+}
+
+/* Checkbox Begining */
+.checkbox{
+  display: inline;
+}
+.checkbox label{
+    background-color: #000;
+    display: inline-block;
+    background-color: rgba(255, 0, 0, 0);
+    border: 2px solid black;
+    color: black;
+    border-radius: 25px;
+    margin: 3px 0px;
+    user-select: none;
+    transition: all .2s;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.checkbox label::before {
+    display: inline-block;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 12px;
+    padding: 2px 6px 2px 2px;
+    content: "\f2f1";
+    transition: transform .3s ease-in-out;
+}
+
+.checkbox input[type="checkbox"]:checked + label::before {
+    content: "\f00c";
+    transform: rotate(-360deg);
+    transition: transform .3s ease-in-out;
+}
+
+.checkbox input[type="checkbox"]:checked + label {
+    border: 2px solid #1bdbf8;
+    background-color: #12bbd4;
+    color: #fff;
+    transition: all .2s;
+}
+input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+}
+/* Checkbox End */
+
+
+/* Infobox Begining */
+.alert {
+  padding: 20px;
+  background-color: #0062b0;
+  color: white;
+  opacity: 1;
+  transition: opacity 0.6s;
+  margin-bottom: 15px;
+  display: inline-block;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+/* Infobox End */

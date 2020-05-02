@@ -2,7 +2,7 @@ let socket,
     connected = false,
     active = 1,
     id = 0,
-    listeners = []
+    listeners = [];
 
 $('button').click(function(e){
     if($(e.target).attr('id') == 'connect') return 0
@@ -22,7 +22,6 @@ const setListener = (num) => {
     });
 
     $('#close' + num).click(e => {
-        console.log(num);
         $(e.target).parent().remove()
         $('#body'+num).remove()
         const first  = parseInt($('.tabs input').last().attr('num'))
@@ -31,7 +30,6 @@ const setListener = (num) => {
         active = first
     })
     $('#event' + num).click(function(e){
-        console.log('clicked');
         active = $(this).attr('num')
         $('.show').removeClass('show');
         $('#body' + active).addClass('show')
@@ -42,60 +40,73 @@ setListener(1)
 const render = () => {
     $('.card-body').html('')
     listeners.forEach(el => {
-        console.log('hey');
-        $('.card-body').append(`<div class="card-item" id="item${el.id}">${el.name}<span item-id="${el.id}" class="item-close">x</span></div>`)
-        console.log(el);
-        $('#item'+el.id).click(function(e){
-            console.log(el);
+        $('.card-body').append(`<div class="card-item" id="item${el.id}">${el.name}<span item-id="${el.id}" class="item-close"><i class="fas fa-times"></i></span></div>`)
+        $('#item' + el.id).click(function(e){
             $('.active').removeClass('active')
+            $('.event-show').removeClass('event-show')
+            $('[event-id=' + el.id + ']').addClass('event-show')
             $(this).addClass('active')
-            $('.card-name').text($(this).text())
+            $('.card-name').text($(this).contents().get(0).nodeValue)
         })
         $('[item-id='+ el.id + ']').click(function(e){
+            socket.off($(this).parent().contents().get(0).nodeValue)
             const id = $(this).attr('item-id')
             listeners = listeners.filter(el => el.id != id)
-            socket.off($(this).prev().text())
+            $('[event-id=' + el.id + ']').remove()
+            if($('.card-name').text() == el.name) $('.card-name').text('Select event to see data')
             render()
         })
 
     })
 }
 
+$('#listener').keypress(e =>{
+    if(e.originalEvent.keyCode == 13) $('#listen').click()
+})
+
 $('#connect').click((e) => {
   e.preventDefault()
   const url = $('#address').val()
   const np = $('#namespace').val()
 
+  if(socket) socket.close()
   socket = io.connect(`${url}/${np}`, {
     forceNew: true,
     transports: ['websocket', 'polling'],
-    reconnection: false
+    reconnection: $('#rec').prop('checked')
   })
-  console.log(socket);
   socket.on('connect', () => {
     if(socket.connected){
-        console.log(socket.connected);
+        if(listeners.length != 0){
+            listeners.forEach(el => {
+                socket.on(el.name, (msg) => {
+                    $('[event-name=' + el.name + ']').append(msg +'\n')
+                    $('#info').text(el.name)
+                })
+            })
+        }
         connected = true
-        $('#status').css('background-color', 'lime')
+        $('#status').css('color', 'lime')
         $('#err').text('')
     }
   })
 
-  socket.on('connect_error', () => {
+  socket.on('connect_error', (e) => {
     connected = false
-    $('#status').css('background-color', 'red')
+    $('#status').css('color', 'red')
     $('#err').text('*Connection error, details in console')
   })
 
-  socket.on('disconnect', () => {
+  socket.on('disconnect', (e) => {
+    console.error(e);
     connected = false
-    $('#status').css('background-color', 'red')
+    $('#status').css('color', 'red')
     $('#err').text('*Socket disconnected, details in console')
   })
 
   if(!socket.connected){
     connected = false;
-    $('#status').css('background-color', 'red')
+    $('#status').css('color', 'red')
     $('#err').text('*Connection error, details in console')
   }
 })
@@ -108,21 +119,19 @@ $('#send').click((e) => {
   try{
     body = JSON.parse(text)
   }catch(e){
-    // console.log(e);
-    $('#status').css('background-color', 'red')
+    $('#status').css('color', 'red')
     $('#err').text('*Invalid body')
   }
   if(connected){
     if(typeof body == 'object'){
       socket.emit(ev, body)
-      console.log('EMITED:', ev, body);
     }else{
-        $('#status').css('background-color', 'red')
+        $('#status').css('color', 'red')
         $('#err').text('*Invalid body')
     }
   }
   else{
-    $('#status').css('background-color', 'red')
+    $('#status').css('color', 'red')
     $('#err').text('*Not Connected')
   }
 })
@@ -131,7 +140,7 @@ $('#add').click((e) => {
   let num = parseInt($('.tabs input').last().attr('num'))+1
   if(isNaN(num)) num = 1
   $('.tabs').append(`<div class="tab">
-      <input type="text" id="event${num}" placeholder="event name" class="event" num="${num}"><span id="close${num}" class="close">x</span>
+      <input type="text" id="event${num}" placeholder="event name" class="event" num="${num}"><span id="close${num}" class="close"><i class="fas fa-times"></i></span>
   </div>`)
   $('.bodies').append(`<textarea class="body" rows="8" cols="20" id="body${num}" class="editable"></textarea>`)
   setListener(num)
@@ -146,17 +155,18 @@ $('html').click(e => {
 })
 
 $('#listen').click((e) => {
-  e.preventDefault()
-  if(!connected) return $('#err').text('*Not Connected')
+    e.preventDefault()
+    if(!connected) return $('#err').text('*Not Connected')
 
-  const ev = $('#listener').val()
-  $('#listener').val('')
+    const ev = $('#listener').val()
+    $('#listener').val('')
 
-  listeners.push({id: ++id, name: ev})
-  $('#event-bodies').append(`<textarea event-id="${id}" class="event-body"  rows="8" cols="50" readonly></textarea>`)
-  render()
+    listeners.push({id: ++id, name: ev})
+    $('#event-bodies').append(`<textarea event-id="${id}" event-name="${ev}"  class="event-body"  rows="8" cols="50" readonly></textarea>`)
+    render()
 
-  socket.on(ev, (msg) => {
-    console.log(msg);
-  })
+    socket.on(ev, (msg) => {
+        $('[event-name=' + ev + ']').append(msg+'\n')
+        $('#info').text(ev)
+    })
 })
