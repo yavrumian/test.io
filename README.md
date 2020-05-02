@@ -1,6 +1,6 @@
 # Iotest
 
-Iotest is a simple but useful online tool for **socket.io** testing 
+Iotest is a simple but useful online tool for **socket.io** testing [io-tester.herokuapp.com](http://io-tester.herokuapp.com/)
 
 ## Installation
 
