@@ -7,32 +7,41 @@
          <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABmJLR0QA/wD/AP+gvaeTAAADMklEQVR4nO3cvWsUQRjH8W/MGdCoJGIQ40sheI0gqIVIREXBF1AQOwsLsVRBMFY211qICFYBS0UsbPwTEtJoI0Rb31ARFRWUCBFjMYscgdu7m53b57ns7wNb7d3Mc/djdmd35w5ERERERERERET6w4B1AYYOABM5+78A90qqRYAGsJizzVkUtcKiU2lNgTijQJxRIM4oEGcUiDM16wK6VAM2AquBdQXb2lS8nPS8BzIIHANOAQeBOjBkWlFFDQOTwHvyL956uZlcGHp0GniDXRAKJDMI3Ab+Yh9G5QMZAh5jH4ICIUy9H2IfgALJ3MD+y1cgmT3AAvZfvptArB9QzQL7jWtoZR54WbCNqWzrmOWF4Qn8hgGwCthbsI3xbt9geS/rsmHfblkFsgE4btS3a1aBHMH/fTQTVoHsM+rXPatA6kb9umcVyJhRv+5ZHceHjfrtRoqFcjMpCinDHPZX4i6v1PVM3RkF4kwvzyEjwFZgC7Bmyb6iCxSWrdSBjAIXgTOE+1QagUZqwDXgK/Yn474+qacYIeuBR8DRBG1VXtFAxghzbV15J1LkGL+SMDIURkJFAmkAh9OUIUVtBn5hf+Jddif12BEySVjwLInFBDIAnO3gdc+Ak8Da7D3N24uIfishZpa1C9jW5jXThFXrvyPar7SYEbKjg9dcQWFEiQmk3dKWj8DziHaFuEPWaJv93zpo409Ev2XbTjgPFlHKQrl2qx0XO2jjZ0S/ZavUQrl3Rv26ZxWIpr0tWAUybdSve1aBzBJWdcgSVoEsAA+M+nbN8hHrLUIw0sRywfNbwhz9kmENefpmoVyDdLetRwhTYOtb7X1/+z2V78A5dOj6zzoQCMP6AuEPAyrPQyAA94HzaKS4CQTCNHgCeGVdiCVPgQA8BXYDd6noaPEWCMAPwgOuOnAH+GxbTrk8//DyNXAVuE74TeIhYCdh8XaKBRbjOP1XuW41cDh/j9DA4efweMiqNAXijAJxRoE4o0CcUSDOKBBnPF8Y9toU8CRn/3xZhTSrciAfss0VHbKcUSDOKBBnFIgzCsQZBeJMzLR3BriZs/9TZC0iIiIiIiIiIiLSR/4B14wc0bjFD+4AAAAASUVORK5CYII=" type="image/png"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+        <script async defer src="https://buttons.github.io/buttons.js"></script>
     </head>
     <body>
         <div class="header">
-            <a href="./"><h1>I<i class="fas fa-xs fa-sync-alt"></i>test</h1></a>
-            <a href="./about.html"><h2>About</h2></a>
+            <a class="nav" href="./"><h1>I<i class="fas fa-xs fa-sync-alt"></i>test</h1></a>
+            <a class="nav" href="./about.html"><h2>About</h2></a>
+            <div class="git">
+                <a class="github-button" href="https://github.com/yavrumian/test.io" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star yavrumian/test.io on GitHub">Star</a>
+                <a class="github-button" href="https://github.com/yavrumian/test.io/subscription" data-icon="octicon-eye" data-size="large" data-show-count="true" aria-label="Watch yavrumian/test.io on GitHub">Watch</a>
+                <a class="github-button" href="https://github.com/yavrumian/test.io/fork" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Fork yavrumian/test.io on GitHub">Fork</a>
+            </div>
         </div>
         <div class="content" style="background-color:#dcdcdc">
-                <h1 id="iotest">Iotest</h1>
-    <p>Iotest is a simple but useful online tool for <strong>socket.io</strong> testing </p>
-    <h2 id="installation">Installation</h2>
-    <p>Use the package manager <a href="https://www.npmjs.com/">npm</a> to install Iotest.</p>
-    <pre><code class="lang-bash">$ npm <span class="hljs-selector-tag">i</span> -s socket.io-test
-    </code></pre>
-    <h2 id="usage">Usage</h2>
-    <p>Run </p>
-    <pre><code class="lang-bash">$ cd socket<span class="hljs-selector-class">.io-test</span>
-    $ npm <span class="hljs-selector-tag">i</span>
-    $ npm start
-    </code></pre>
-    <p>then simply visit <code>http://localhost:8080</code> to use iotest.</p>
-    <p>Also, you can change <strong>port</strong> variable in <code>/iotest/app.js</code> to run tool on another port</p>
-    <h2 id="contributing">Contributing</h2>
-    <p>Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.</p>
-    <p>Please make sure to update the tests as appropriate.</p>
-    <h2 id="license">License</h2>
-    <p><a href="https://choosealicense.com/licenses/mit/">MIT</a></p>
+            <h1 id="iotest">Iotest</h1>
+<p>Iotest is a simple but useful online tool for <strong>socket.io</strong> testing <a href="http://io-tester.herokuapp.com/">io-tester.herokuapp.com</a></p>
+<h2 id="installation">Installation</h2>
+<p>Use <a href="https://git-scm.com/">git</a> to download and install Iotest.</p>
+<pre><code class="lang-bash"><span class="hljs-symbol">$</span> git clone https:<span class="hljs-comment">//github.com/yavrumian/test.io</span>
+<span class="hljs-symbol">$</span> cd test.io
+<span class="hljs-symbol">$</span> npm i
+</code></pre>
+<h2 id="usage">Usage</h2>
+<p>Run </p>
+<pre><code class="lang-bash">$ <span class="hljs-built_in">npm</span> start
+</code></pre>
+<p>then simply visit <code>http://localhost:8080</code> to use iotest.</p>
+<p>Also, you can change <strong>port</strong> variable in <code>/iotest/app.js</code> to run tool on another port</p>
+<h2 id="contributing">Contributing</h2>
+<p>Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.</p>
+<p>Please make sure to update the tests as appropriate.</p>
+<h2 id="license">License</h2>
+<p><a href="https://choosealicense.com/licenses/mit/">MIT</a></p>
+
+
+
 
         </div>
     </body>

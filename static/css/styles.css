@@ -23,7 +23,7 @@ input, textarea, button{
     position: relative;
 }
 .namespace-block > input {
-    padding-left: 11px
+    padding-left: 12px
 }
 .slash{
     position:absolute;
@@ -181,7 +181,7 @@ input[type="checkbox"] {
 
 .header{
     /* padding: 5px; */
-    height: 7vh;
+    /* height: 7vh; */
     color: white;
     display: flex;
     align-items: center;
@@ -190,6 +190,7 @@ input[type="checkbox"] {
 .header h2{
     padding: 17px;
     line-height: 1;
+    margin: 0
 }
 .header h1{
     line-height: 1;
@@ -202,12 +203,16 @@ input[type="checkbox"] {
     cursor: pointer;
     background-color: #001e26
 }
-.header a:visited, .header a:visited{
+.nav:visited, .nav:visited{
     text-decoration: none;
     color: white;
     text-decoration: none;
 }
-.header a{
-    color:white;
+.git{
+    margin-left: auto;
+    margin-right: 25px
+}
+.nav{
+    color: white;
     text-decoration: none;
 }
