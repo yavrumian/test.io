@@ -23,7 +23,7 @@ const setListener = (num) => {
 
     $('#close' + num).click(e => {
         $(e.target).parent().remove()
-        $('#body'+num).parent().remove()
+        $('#body'+num).remove()
         $('#event'+num).parent().remove()
         console.log("Removing num:" + num)
         const first  = parseInt($('.tabs input').last().attr('num'))
