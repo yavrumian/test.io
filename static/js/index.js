@@ -23,7 +23,9 @@ const setListener = (num) => {
 
     $('#close' + num).click(e => {
         $(e.target).parent().remove()
-        $('#body'+num).remove()
+        $('#body'+num).parent().remove()
+        $('#event'+num).parent().remove()
+        console.log("Removing num:" + num)
         const first  = parseInt($('.tabs input').last().attr('num'))
 
         $('#body'+first).addClass('show')
@@ -145,6 +147,7 @@ $('#add').click((e) => {
   $('.bodies').append(`<textarea class="body" rows="8" cols="20" id="body${num}" class="editable"></textarea>`)
   setListener(num)
 })
+
 
 $('#card-toggle').click(e => {
     $('.card-body').toggle()
