@@ -29,13 +29,16 @@ input, textarea, button{
     position:absolute;
     left:10px;
     font-weight:bold;
-    top:10px;
+    top:17px;
 }
 .close{
     background-color: white;
     padding: 5px;
     border-bottom: 2px white solid;
     font-family: sans-serif;
+    position: relative;
+    right: 35px;
+    z-index: 1;
 }
 .close:hover{
     background-color: #d8d8d8;
@@ -59,7 +62,7 @@ input, textarea, button{
 }
 .tab{
     display: inline-block;
-    position: relative;
+    grid-template-columns: 1fr 0 ;
 }
 .event{
     margin-right: 0;
@@ -215,4 +218,20 @@ input[type="checkbox"] {
 .nav{
     color: white;
     text-decoration: none;
+}
+
+.button-default{ 
+    border-radius: 5px;
+    background-color: #0062b0;
+    color: white;
+    margin: 0.6rem;
+    padding: 0.6rem;
+}
+.button-default:hover{ 
+    background-color: #2798f2;
+}
+
+input{ 
+    padding: 0.7rem; 
+    border-radius: 3px; 
 }
