@@ -1,78 +1,94 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Socket IO tester</title>
-         <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABmJLR0QA/wD/AP+gvaeTAAADMklEQVR4nO3cvWsUQRjH8W/MGdCoJGIQ40sheI0gqIVIREXBF1AQOwsLsVRBMFY211qICFYBS0UsbPwTEtJoI0Rb31ARFRWUCBFjMYscgdu7m53b57ns7wNb7d3Mc/djdmd35w5ERERERERERET6w4B1AYYOABM5+78A90qqRYAGsJizzVkUtcKiU2lNgTijQJxRIM4oEGcUiDM16wK6VAM2AquBdQXb2lS8nPS8BzIIHANOAQeBOjBkWlFFDQOTwHvyL956uZlcGHp0GniDXRAKJDMI3Ab+Yh9G5QMZAh5jH4ICIUy9H2IfgALJ3MD+y1cgmT3AAvZfvptArB9QzQL7jWtoZR54WbCNqWzrmOWF4Qn8hgGwCthbsI3xbt9geS/rsmHfblkFsgE4btS3a1aBHMH/fTQTVoHsM+rXPatA6kb9umcVyJhRv+5ZHceHjfrtRoqFcjMpCinDHPZX4i6v1PVM3RkF4kwvzyEjwFZgC7Bmyb6iCxSWrdSBjAIXgTOE+1QagUZqwDXgK/Yn474+qacYIeuBR8DRBG1VXtFAxghzbV15J1LkGL+SMDIURkJFAmkAh9OUIUVtBn5hf+Jddif12BEySVjwLInFBDIAnO3gdc+Ak8Da7D3N24uIfishZpa1C9jW5jXThFXrvyPar7SYEbKjg9dcQWFEiQmk3dKWj8DziHaFuEPWaJv93zpo409Ev2XbTjgPFlHKQrl2qx0XO2jjZ0S/ZavUQrl3Rv26ZxWIpr0tWAUybdSve1aBzBJWdcgSVoEsAA+M+nbN8hHrLUIw0sRywfNbwhz9kmENefpmoVyDdLetRwhTYOtb7X1/+z2V78A5dOj6zzoQCMP6AuEPAyrPQyAA94HzaKS4CQTCNHgCeGVdiCVPgQA8BXYDd6noaPEWCMAPwgOuOnAH+GxbTrk8//DyNXAVuE74TeIhYCdh8XaKBRbjOP1XuW41cDh/j9DA4efweMiqNAXijAJxRoE4o0CcUSDOKBBnPF8Y9toU8CRn/3xZhTSrciAfss0VHbKcUSDOKBBnFIgzCsQZBeJMzLR3BriZs/9TZC0iIiIiIiIiIiLSR/4B14wc0bjFD+4AAAAASUVORK5CYII=" type="image/png"/>
-        <link rel="stylesheet" href="./css/styles.css">
-        <script async defer src="https://buttons.github.io/buttons.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <div class="header">
-            <a class="nav" href="./"><h1>I<i class="fas fa-xs fa-sync-alt"></i>test</h1></a>
-            <a class="nav" href="./about.html"><h2>About</h2></a>
-            <div class="git">
-                <a class="github-button" href="https://github.com/yavrumian/test.io" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star yavrumian/test.io on GitHub">Star</a>
-                <a class="github-button" href="https://github.com/yavrumian/test.io/subscription" data-icon="octicon-eye" data-size="large" data-show-count="true" aria-label="Watch yavrumian/test.io on GitHub">Watch</a>
-                <a class="github-button" href="https://github.com/yavrumian/test.io/fork" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Fork yavrumian/test.io on GitHub">Fork</a>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket IO tester</title>
+    <link rel="icon"
+        href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABmJLR0QA/wD/AP+gvaeTAAADMklEQVR4nO3cvWsUQRjH8W/MGdCoJGIQ40sheI0gqIVIREXBF1AQOwsLsVRBMFY211qICFYBS0UsbPwTEtJoI0Rb31ARFRWUCBFjMYscgdu7m53b57ns7wNb7d3Mc/djdmd35w5ERERERERERET6w4B1AYYOABM5+78A90qqRYAGsJizzVkUtcKiU2lNgTijQJxRIM4oEGcUiDM16wK6VAM2AquBdQXb2lS8nPS8BzIIHANOAQeBOjBkWlFFDQOTwHvyL956uZlcGHp0GniDXRAKJDMI3Ab+Yh9G5QMZAh5jH4ICIUy9H2IfgALJ3MD+y1cgmT3AAvZfvptArB9QzQL7jWtoZR54WbCNqWzrmOWF4Qn8hgGwCthbsI3xbt9geS/rsmHfblkFsgE4btS3a1aBHMH/fTQTVoHsM+rXPatA6kb9umcVyJhRv+5ZHceHjfrtRoqFcjMpCinDHPZX4i6v1PVM3RkF4kwvzyEjwFZgC7Bmyb6iCxSWrdSBjAIXgTOE+1QagUZqwDXgK/Yn474+qacYIeuBR8DRBG1VXtFAxghzbV15J1LkGL+SMDIURkJFAmkAh9OUIUVtBn5hf+Jddif12BEySVjwLInFBDIAnO3gdc+Ak8Da7D3N24uIfishZpa1C9jW5jXThFXrvyPar7SYEbKjg9dcQWFEiQmk3dKWj8DziHaFuEPWaJv93zpo409Ev2XbTjgPFlHKQrl2qx0XO2jjZ0S/ZavUQrl3Rv26ZxWIpr0tWAUybdSve1aBzBJWdcgSVoEsAA+M+nbN8hHrLUIw0sRywfNbwhz9kmENefpmoVyDdLetRwhTYOtb7X1/+z2V78A5dOj6zzoQCMP6AuEPAyrPQyAA94HzaKS4CQTCNHgCeGVdiCVPgQA8BXYDd6noaPEWCMAPwgOuOnAH+GxbTrk8//DyNXAVuE74TeIhYCdh8XaKBRbjOP1XuW41cDh/j9DA4efweMiqNAXijAJxRoE4o0CcUSDOKBBnPF8Y9toU8CRn/3xZhTSrciAfss0VHbKcUSDOKBBnFIgzCsQZBeJMzLR3BriZs/9TZC0iIiIiIiIiIiLSR/4B14wc0bjFD+4AAAAASUVORK5CYII="
+        type="image/png" />
+    <link rel="stylesheet" href="./css/styles.css">
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="header">
+        <a class="nav" href="./">
+            <h1>I<i class="fas fa-xs fa-sync-alt"></i>test</h1>
+        </a>
+        <a class="nav" href="./about.html">
+            <h2>About</h2>
+        </a>
+        <button id="toggle-dark-mode" >Dark mode</button>
+        <button id="toggle-light-mode" >Light mode</button>
+        <div class="git">
+            <a class="github-button" href="https://github.com/yavrumian/test.io" data-icon="octicon-star"
+                data-size="large" data-show-count="true" aria-label="Star yavrumian/test.io on GitHub">Star</a>
+            <a class="github-button" href="https://github.com/yavrumian/test.io/subscription" data-icon="octicon-eye"
+                data-size="large" data-show-count="true" aria-label="Watch yavrumian/test.io on GitHub">Watch</a>
+            <a class="github-button" href="https://github.com/yavrumian/test.io/fork" data-icon="octicon-repo-forked"
+                data-size="large" data-show-count="true" aria-label="Fork yavrumian/test.io on GitHub">Fork</a>
+        </div>
+    </div>
+    <div class="content">
+        <div class="control">
+            <input type="text" id="address" value="https://" placeholder="http://example.com/socket.io">
+            <div class="namespace-block">
+                <input type="text" id="namespace" placeholder="namespace"><label for="namespace" class="slash">/</label>
+            </div>
+            <span class="checkbox">
+                <input type="checkbox" checked id="rec">
+                <label for="rec">Reconnection</label>
+            </span>
+
+            <button class="button-default" type="button" id="connect">Connect </button><i id="status"
+                class="fas fa-wifi"></i>
+            <!-- <span class="dot" id="status"></span> -->
+            <br>
+            <span id="err" color="red"></span>
+        </div>
+        <div class="panel">
+            <div class="tabs">
+                <div class="tab">
+                    <input type="text" id="event1" placeholder="event name" class="event" num="1"> <span id="close1"
+                        class="close"><i class="fas fa-times"></i></span>
+                </div>
+            </div>
+            <button class="button-default" type="button" id="add">+</button>
+        </div>
+        <div class="bodies">
+            <textarea class="body" rows="8" cols="20" id="body1" class="editable show"></textarea>
+        </div>
+        <br>
+        <button class="button-default" type="button" id="send">Send</button>
+        <br>
+        <input type="text" id="listener" placeholder="Event Name">
+        <button class="button-default" type="button" name="button" id="listen">Add Listener</button>
+        <br>
+        <div class="card">
+            <div class="card-head" id="card-toggle">
+                <span class="card-name">Select event to see data</span>
+                <span class="card-close">&#9660;</span>
+            </div>
+            <div class="card-body">
+
             </div>
         </div>
-        <div class="content">
-            <div class="control">
-                <input type="text" id="address" value="https://" placeholder="http://example.com/socket.io">
-                <div class="namespace-block">
-                    <input type="text" id="namespace" placeholder="namespace"><label for="namespace" class="slash">/</label>
-                </div>
-                <span class="checkbox">
-                    <input type="checkbox" checked id="rec">
-                    <label for="rec">Reconnection</label>
-                </span>
-
-                <button class="button-default" type="button" id="connect">Connect </button><i id="status" class="fas fa-wifi"></i>
-                <!-- <span class="dot" id="status"></span> -->
-                <br>
-                <span id="err" color="red"></span>
-            </div>
-            <div class="panel">
-                <div class="tabs">
-                    <div class="tab">
-                        <input type="text" id="event1" placeholder="event name" class="event" num="1">  <span id="close1" class="close"><i class="fas fa-times"></i></span>
-                    </div>
-                </div>
-                <button class="button-default" type="button" id="add">+</button>
-            </div>
-            <div class="bodies">
-                <textarea class="body" rows="8" cols="20" id="body1" class="editable show"></textarea>
-            </div>
-            <br>
-            <button class="button-default" type="button" id="send">Send</button>
-            <br>
-            <input type="text" id="listener" placeholder="Event Name">
-            <button class="button-default" type="button" name="button" id="listen">Add Listener</button>
-            <br>
-            <div class="card">
-                <div class="card-head"  id="card-toggle">
-                    <span class="card-name">Select event to see data</span>
-                    <span class="card-close">&#9660;</span>
-                </div>
-                <div class="card-body">
-
-                </div>
-            </div>
-            <div id="event-bodies">
-
-            </div>
-            <div class="alert info">Last message from
-                <strong id="info">no</strong> event
-            </div>
+        <div id="event-bodies">
 
         </div>
+        <div class="alert info">/ssage from
+            <strong id="info">no</strong> event
+        </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js" charset="utf-8"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js" charset="utf-8"></script>
-        <script src="./js/index.js" charset="utf-8"></script>
-    </body>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js" charset="utf-8"></script>
+    <script src="./js/index.js" charset="utf-8"></script>
+</body>
+
 </html>

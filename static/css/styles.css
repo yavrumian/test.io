@@ -4,9 +4,16 @@ body{
     font-family: monospace;
     margin:0;
 }
-.content{
-    padding: 10px
+
+body.dark{
+    background-color: #292c35;
+    font-family: monospace;
 }
+
+.content{
+    padding: 10px;
+}
+
 #err{
     color: red;
 }
@@ -173,6 +180,7 @@ input[type="checkbox"] {
   background-color: #0062b0;
   color: white;
   opacity: 1;
+  border-radius: 5px;
   transition: opacity 0.6s;
   margin-bottom: 15px;
   display: inline-block;
@@ -235,3 +243,4 @@ input{
     padding: 0.7rem; 
     border-radius: 3px; 
 }
+
