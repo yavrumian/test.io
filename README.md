@@ -33,16 +33,23 @@ We welcome contributions from everyone, especially new contributors. Simply subm
 
 Please follow the below steps when submitting a PR:
 1. If you plan on making significant changes please first open an issue to discuss what you would like to change.
-2. Fork the repository to create your own copy..
-3. Setup and run the development environment by following the Installation and Usage instructions above. Make sure to replace the git clone link with your forked repository URL.
+
+2. Fork the repository to create your own copy.
+
+3. Setup and run the development environment by following the Installation and Usage instructions above. (Make sure to replace the git clone link with your forked repository URL).
+
 4. Create and checkout your own branch.
-```bash
-git branch <branch_name>
-git checkout -b <branch_name>
-```
+    ```bash
+    git branch <branch_name>
+    git checkout -b <branch_name>
+    ```
+
 5. Make your changes.
+
 6. Run **and update** tests as appropriate.
+
 7. Push your changes to your branch. 
+
 8. Open a Pull Request on the parent project.
 
 ## License
